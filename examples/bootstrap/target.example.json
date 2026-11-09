@@ -1,0 +1,20 @@
+{
+  "agentResourceId": "/subscriptions/<subscription-guid>/resourceGroups/<agent-rg>/providers/Microsoft.App/agents/<agent-name>",
+  "scope": {
+    "resourceGroups": ["/subscriptions/<subscription-guid>/resourceGroups/<workload-rg>"],
+    "clusterResourceId": "/subscriptions/<subscription-guid>/resourceGroups/<workload-rg>/providers/Microsoft.ContainerService/managedClusters/<cluster-name>",
+    "namespace": "<approved-namespace>",
+    "telemetry": [],
+    "repositories": [],
+    "clientVantagePoints": []
+  },
+  "readOnlyBoundariesVerified": false,
+  "approvedUnlicensedSources": [],
+  "tools": {
+    "lab-triage": [],
+    "lab-network-specialist": [],
+    "lab-vm-specialist": [],
+    "lab-k8s-specialist": [],
+    "lab-incident-analyst": []
+  }
+}

@@ -1,0 +1,71 @@
+# Azure SRE Agent Hackathon
+
+## Current Two-Day Workshop
+
+Start with the [two-day agenda](AGENDA.md) and [eight participant labs](exercises/two-day-workshop.md).
+Both days run 09:00-16:00 with lunch 11:00-12:00 and no break immediately before
+lunch. Day 1 builds AKS, the app, Grafana/Azure Monitor alerts and configures SRE
+Agent. Day 2 includes AKS roadmap and NAP/Karpenter presentation slots, agent
+runtime validation, autoscaling tests and a final controlled break/fix challenge.
+The two additional presentations are planned slots; no decks have been created.
+
+Use [Workshop Setup And Operations](WORKSHOP-SETUP.md) for shared technical
+procedures. The agenda and labs supersede every older round clock and fault
+allowance below. Older slides and delivery references still need migration;
+they do not authorize a different event schedule or an extra attack window.
+
+## Historical Single-Day Delivery Reference
+
+Core day: Five 30-minute rounds: round 1 parallel setup 12:30-13:00; round 2 simultaneous reciprocal attack/defend 13:00-13:20 and reset/verify/revoke 13:20-13:30; round 3 protected improvement 13:30-14:00, no attacks; round 4 simultaneous reciprocal attack/defend 14:00-14:20 and reset/verify/revoke 14:20-14:30; round 5 protected improvement 14:30-15:00, no attacks. Both teams attack and defend concurrently in each attack round using independent people and identities. Freeze blue evidence at 15:00, then unseal ledgers for conclusions 15:00-15:30; operator cleanup 15:00-15:05 runs alongside writing. Present 15:30-16:00; confirm cleanup or approved remaining-resource owner, budget and disposal deadline by 16:00.
+
+## Delivery Pack
+
+- [Workshop setup and operations](WORKSHOP-SETUP.md): start here for cluster deployment, SRE Agent setup, app deployment, Grafana dashboards, KEDA/NAP autoscaling, readiness gates, known gaps and cleanup; separates reusable workshop assets from the existing facilitator deployment's private state.
+- [Deployable scenario catalog](scenarios/README.md): sanitized VM and AKS infrastructure/app paths, facilitator-only fault/reset and cleanup instructions; choose a rehearsed assigned lane per pair.
+Round 1 setup 12:30-13:00; round 2 simultaneous reciprocal attack/defend 13:00-13:20, reset/verify/revoke 13:20-13:30; round 3 protected improvement 13:30-14:00, no attacks; round 4 simultaneous reciprocal attack/defend 14:00-14:20, reset/verify/revoke 14:20-14:30; round 5 protected improvement 14:30-15:00, no attacks. Freeze blue evidence at 15:00 before unsealing ledgers, write conclusions 15:00-15:30 and present 15:30-16:00. Operator cleanup starts 15:00-15:05 alongside writing; approve remaining-resource owner/budget/disposal deadline by 16:00. One active fault per TARGET, not globally; reciprocal targets and isolated pairs may have faults concurrently. One card per team per attack round, two total across the day. Recovery and two-minute cooldown are required before later eligibility. During protected improvement: no fault requests, queues cancelled, red scope inactive and denial verified for ALL targets. Improve from own blue evidence only; keep fault catalogs and ledgers sealed until 15:00. Separate red people and identities from blind blue diagnosis; switch individuals internally in round 3, without sharing original red ledgers. Teams with fewer than four use a facilitator red broker/planner and private red recorder. Human improvements use a separate approved own-scope deployment identity; the agent remains read-only.
+- [All presentations](slides/README.md): five presentation assets, 113 slides; two morning theory sessions, introduction/briefing references and SRE facilitator reference.
+- [04 - Red/blue briefing](slides/html/04-red-blue-hackathon.html) ([source](slides/present/04-red-blue-hackathon.md)): 11 slides including four potential team roles; selected briefing slides fit within the 30-minute demo, not an extra lecture.
+- [03 - Azure SRE Agent L100](slides/present/03-SRE-Agent-L100.pptx): supplied 27-slide PowerPoint, unchanged, for 10:15-11:00 (45 minutes); review contact, author metadata and customer story before redistribution.
+- [Core worksheet](exercises/single-day-workshop.md): two parallel 30-minute setup iterations, two alternating 30-minute attack/reset rounds, 30 minutes writing and 30 minutes presentations; guided labs remain optional.
+- [Extended foundations exercises](exercises/ai-agents-fundamentals.md): optional 35/40/45-minute alternatives with fictional fixtures and a paper fallback; not extra scheduled work.
+- [Participant workbook](PARTICIPANT-WORKBOOK.md): scope, guided labs, evidence review, and optional follow-up.
+- [Agent configuration](AGENT-CONFIGURATION.md): foundation preparation, participant blue-build checklist and optional full 60-minute tutorial.
+- [Practical Azure SRE Agent setup](SRE-AGENT-SETUP.md): scoped identities, real connectors, skill publishing, routing and live acceptance proof; local Markdown installs nothing.
+- [Agent and skill examples](examples/README.md): optional attendee guides; use, adapt or create your own agents and skills. Choose procedures for your VM or Kubernetes lane; names and role counts are not mandatory.
+- [Example skill catalog](examples/skills/README.md): network, VM and Kubernetes procedures, investigation intake and evidence synthesis, with example migration and acceptance cases.
+Core day: Five 30-minute rounds: round 1 parallel setup 12:30-13:00; round 2 simultaneous reciprocal attack/defend 13:00-13:20 and reset/verify/revoke 13:20-13:30; round 3 protected improvement 13:30-14:00, no attacks; round 4 simultaneous reciprocal attack/defend 14:00-14:20 and reset/verify/revoke 14:20-14:30; round 5 protected improvement 14:30-15:00, no attacks. Both teams attack and defend concurrently in each attack round using independent people and identities. Freeze blue evidence at 15:00, then unseal ledgers for conclusions 15:00-15:30; operator cleanup 15:00-15:05 runs alongside writing. Present 15:30-16:00; confirm cleanup or approved remaining-resource owner, budget and disposal deadline by 16:00.
+- [Facilitator guide](FACILITATOR-GUIDE.md): preparation, controlled faults, recovery, discussion and cleanup.
+- facilitator-approved resource scope: per-team scope, baseline, and access checklist.
+- optional investigation notes or discussion: evidence, approval, recovery, and readout.
+- [Setup sources and limits](SRE-AGENT-SETUP.md): official references, activation evidence, and known limitations.
+
+## Delivery Model
+
+Round 1 setup 12:30-13:00; round 2 simultaneous reciprocal attack/defend 13:00-13:20, reset/verify/revoke 13:20-13:30; round 3 protected improvement 13:30-14:00, no attacks; round 4 simultaneous reciprocal attack/defend 14:00-14:20, reset/verify/revoke 14:20-14:30; round 5 protected improvement 14:30-15:00, no attacks. Freeze blue evidence at 15:00 before unsealing ledgers, write conclusions 15:00-15:30 and present 15:30-16:00. Operator cleanup starts 15:00-15:05 alongside writing; approve remaining-resource owner/budget/disposal deadline by 16:00. One active fault per TARGET, not globally; reciprocal targets and isolated pairs may have faults concurrently. One card per team per attack round, two total across the day. Recovery and two-minute cooldown are required before later eligibility. During protected improvement: no fault requests, queues cancelled, red scope inactive and denial verified for ALL targets. Improve from own blue evidence only; keep fault catalogs and ledgers sealed until 15:00. Separate red people and identities from blind blue diagnosis; switch individuals internally in round 3, without sharing original red ledgers. Teams with fewer than four use a facilitator red broker/planner and private red recorder. Human improvements use a separate approved own-scope deployment identity; the agent remains read-only.
+
+Pair whole teams A/B, with isolated additional pairs. Both are active during both setup rounds, then alternate attack/defense. Use one rehearsed VM or Kubernetes target lane per pair; do not require cold deployment of both within 60 minutes. Foundations, identities, telemetry access and Running agent shells are pre-work; participants deploy assigned infrastructure/app and configure their own agent. Slow cold provisioning requires explicit participant pre-work, not a delayed finish. Unready targets are not attacked; label prebuilt fallbacks/incomplete deployment honestly. Legacy guided labs and full setup tutorials remain optional. L100 proves no live access or approval control.
+
+Investigation starts read-only. Set **Review** explicitly on every incident response plan and scheduled task; the agent-level fallback alone is not sufficient. Only an SRE Agent Administrator can approve Azure infrastructure write actions. Review mode does not gate every external connector or Kubernetes operation: enforce access with identity, tool policies, and a separate facilitator-operated repair path.
+
+Only registered controlled faults against disposable rival targets are permitted in each attack window, brokered by the facilitator unless field-level enforcement and denied-operation tests pass. Blue's deployer, read-only investigator and red identities are separate; never grant the defender agent rival access. No production targets, broad red Contributor, credential attacks, secrets, exfiltration, DoS, internet attacks or destructive changes. Keep state, credentials, customer documents and fault ledgers out of knowledge. One active fault, one card per team per attack round, maximum two total per team, verified recovery plus two-minute cooldown, and anyone may STOP.
+
+## Readiness
+
+This pack adapts existing local material; it is not evidence that the combined event has run successfully. Rehearse both environments, access paths, fault injection, rollback, and endpoint checks before delivery. No Azure resources are provisioned by opening or rendering these documents.
+
+The SRE reference deck contains 38 slides with build/configuration and main competition references; legacy guided-lab detail is optional. Deployment, effective access, native alert ingestion, skill loading, recovery and red controls require live rehearsal. Document validation is not proof those controls are deployed. Review observed evidence without marks or team rankings. Cleanup remains mandatory.
+
+The visual identity is Microsoft-inspired, not an official Microsoft training template or endorsement. Segoe UI, a light canvas, Microsoft blue, and restrained four-color accents carry the presentation styling.
+## Five-Round Workshop Handover
+
+Five 30-minute rounds: round 1 parallel setup 12:30-13:00; round 2 simultaneous reciprocal attack/defend 13:00-13:20 and reset/verify/revoke 13:20-13:30; round 3 protected improvement 13:30-14:00, no attacks; round 4 simultaneous reciprocal attack/defend 14:00-14:20 and reset/verify/revoke 14:20-14:30; round 5 protected improvement 14:30-15:00, no attacks. Both teams attack and defend concurrently in each attack round using independent people and identities. Freeze blue evidence at 15:00, then unseal ledgers for conclusions 15:00-15:30; operator cleanup 15:00-15:05 runs alongside writing. Present 15:30-16:00; confirm cleanup or approved remaining-resource owner, budget and disposal deadline by 16:00.
+
+Both VM and Kubernetes lanes remain available. Register one healthy target per team in one rehearsed lane; do not require both lanes inside 30 minutes. Cold Terraform, VM/gateway, AKS or agent foundation provisioning may exceed 30 minutes: schedule explicit participant deployment pre-work before the clock, with actor/revision/live-ID/application-health proof, or label the fallback facilitator-prebuilt. An empty prepared agent shell is foundation, not participant deployment. Never extend the 16:00 finish or deploy automatically from these documents.
+
+Potential roles during attacks: red fault planner (former team lead), red sealed-ledger recorder, blue SRE Agent investigator, and blue recovery lead (former deployment operator). Build collaboratively; assign two red and two blue people per team during attacks. Switch individuals within each team during round 3 after reset/revocation. Former red knows only their rival injection, not the incoming fault on their own target; never share chosen-card ledgers with fellow blue responders until 15:00. New red does not read the previous ledger. No person may know the incoming card/ledger and perform blind diagnosis of that incident. For fewer than four participants, use a facilitator red broker/planner and private red record; do not combine secret-ledger knowledge and blind diagnosis. These are potential duties, not a mandatory team size or permission grant; never share credentials.
+
+Protected improvement in rounds 3 and 5 means no attacks or fault requests: queues cancelled, red scope inactive and denial verified. Reset and verify ALL targets before each protected block; if unhealthy, hold live play and continue authorized recovery without enabling red. Improve only from own observed blue evidence and approved baseline/configuration facts; do not unseal the red fault catalog or chosen-card ledgers. Human changes use a separately approved own-scope deployment identity; the agent remains read-only. Review is only for separately authorized supported plans/tasks, not a generic write gate. Repeat healthy-baseline, identity/denial and recovery gates before 13:00 and 14:00; shorten/cancel the fixed next attack if unready, never borrow the final hour.
+
+One active fault per TARGET workload, not globally: reciprocal targets and isolated pairs may have faults concurrently. Strictly one card per team per attack round, two total across the competition, with verified recovery and a two-minute cooldown before later eligibility. No extra cards, retries after an accepted execution, or rollover of an unused first-round allowance.
+
+Confirm facilitator-approved resource scope. Review actual configuration, investigation and recovery evidence without marks or team rankings. Investigation notes and discussion are optional; no participant forms are required. Retain operational approvals, fault ledgers, health checks and cleanup ownership. Label manual handoffs and facilitator-prebuilt fallbacks honestly.

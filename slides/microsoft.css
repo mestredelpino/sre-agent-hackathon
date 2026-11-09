@@ -1,0 +1,82 @@
+/* @theme microsoft-hackathon */
+@import 'default';
+
+:root {
+  --c-ink: #201f1e;
+  --c-muted: #605e5c;
+  --c-blue: #0078d4;
+  --c-line: #d9e2e8;
+  --c-good: #107c10;
+  --c-warning: #9a6700;
+  --c-danger: #a4262c;
+  --c-background: #faf9f8;
+}
+section {
+  width: 1280px;
+  height: 720px;
+  padding: 90px 64px 66px;
+  justify-content: flex-start;
+  background: radial-gradient(circle at 100% 100%, #eaf3fb 0, #eaf3fb 150px, transparent 151px), var(--c-background);
+  color: var(--c-ink);
+  font-family: 'Segoe UI', 'Segoe UI Variable', sans-serif;
+  font-size: 25px;
+  line-height: 1.34;
+  letter-spacing: 0;
+}
+section::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: 64px;
+  width: 13px;
+  height: 13px;
+  background: #f25022;
+  box-shadow: 16px 0 #7fba00, 0 16px #00a4ef, 16px 16px #ffb900;
+}
+header { position: absolute; top: 30px; left: 110px; right: 64px; font-size: 17px; color: var(--c-muted); }
+footer { left: 64px; bottom: 23px; font-size: 14px; color: var(--c-muted); }
+section::after { right: 42px; bottom: 22px; font-size: 15px; color: var(--c-muted); }
+h1 { margin: 0 0 23px; border: 0; color: var(--c-blue); font-size: 41px; font-weight: 600; line-height: 1.15; }
+h2 { margin: 12px 0 18px; font-size: 29px; font-weight: 400; color: var(--c-muted); }
+p { margin: 0 0 17px; }
+strong, a { color: var(--c-blue); }
+strong { font-weight: 600; }
+a { text-decoration: none; }
+ul, ol { padding-left: 28px; margin: 0 0 20px; }
+li { margin-bottom: 12px; }
+li::marker { color: var(--c-blue); }
+code { font-family: 'Cascadia Code', Consolas, monospace; font-size: 0.86em; background: #eef4f8; color: #005a9e; }
+section.title { justify-content: center; }
+section.title h1 { font-size: 62px; max-width: 1000px; margin-bottom: 20px; }
+.eyebrow { color: var(--c-good); font-size: 19px; font-weight: 600; margin-bottom: 16px; }
+.subtitle { font-size: 32px; color: var(--c-muted); max-width: 980px; }
+.meta { font-size: 21px; color: var(--c-muted); margin-top: 28px; }
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 27px; margin: 10px 0 22px; }
+.grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.capability { border-top: 4px solid var(--c-blue); padding-top: 16px; font-size: 24px; }
+.capability b { display: block; font-size: 26px; margin-bottom: 12px; }
+.capability p { margin-bottom: 12px; }
+.focus, .caution, .risk { padding: 16px 22px; border-left: 4px solid var(--c-blue); background: #edf6fc; font-size: 23px; margin: 18px 0 0; }
+.caution { border-color: var(--c-warning); background: #fff8e5; }
+.risk { border-color: var(--c-danger); background: #fde7e9; }
+.flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 17px; margin: 22px 0; }
+.step { border: 1px solid var(--c-line); border-top: 4px solid var(--c-blue); border-radius: 4px; background: #fff; padding: 18px; font-size: 24px; min-height: 122px; }
+.step b { display: block; font-size: 19px; color: var(--c-blue); margin-bottom: 12px; }
+.step small { display: block; font-size: 20px; color: var(--c-muted); margin-top: 10px; }
+.prompt { border-left: 4px solid var(--c-blue); background: #f0f6fa; padding: 22px 26px; font-size: 25px; line-height: 1.48; margin: 8px 0 22px; }
+.small { font-size: 20px; color: var(--c-muted); }
+.label { font-size: 18px; color: var(--c-good); font-weight: 600; margin-bottom: 10px; }
+.agenda { display: grid; grid-template-columns: 165px 1fr 165px 1fr; gap: 13px 22px; margin-top: 12px; font-size: 23px; }
+.agenda b, .checklist b { color: var(--c-good); }
+.checklist { display: grid; grid-template-columns: 145px 1fr; gap: 17px 24px; margin: 15px 0 22px; font-size: 24px; }
+.path { display: flex; gap: 13px; align-items: center; margin: 22px 0; }
+.path .step { flex: 1; min-width: 0; min-height: 100px; }
+.arrow { color: var(--c-blue); font-size: 26px; }
+table { width: 100%; border-collapse: collapse; background: transparent; font-size: 23px; margin: 8px 0 18px; }
+th { color: #005a9e; background: #eaf3fb; font-weight: 600; }
+th, td { padding: 11px 15px; border: 0; border-bottom: 1px solid var(--c-line); text-align: left; }
+tr:nth-child(2n) { background: #f3f5f6; }
+section.compact table { font-size: 21px; }
+section.compact th, section.compact td { padding: 9px 13px; }
+.sources { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 28px; font-size: 18px; margin-top: 22px; }
+@media print { section { print-color-adjust: exact; -webkit-print-color-adjust: exact; } }

@@ -1,0 +1,42 @@
+{
+  "package": "hediet.vscode-drawio",
+  "version": "1.19.0",
+  "icons": {
+    "gateway": {
+      "source": "img/lib/azure2/networking/Application_Gateways.svg",
+      "sha256": "514d11244c6c86bd0349fce0b014498b1278f707dc25e71764ea4cdd7f25fb3a"
+    },
+    "aks": {
+      "source": "img/lib/azure2/compute/Kubernetes_Services.svg",
+      "sha256": "5a6ab9017dc50b0a7b30ec13c6e6288ed1b3f6c956af69a4ed48dfb152cba36a"
+    },
+    "law": {
+      "source": "img/lib/azure2/analytics/Log_Analytics_Workspaces.svg",
+      "sha256": "333f8dd95e191771656e62f7ad710734a79b2f305aebfb41eea1fd2223e32ebf"
+    },
+    "grafana": {
+      "source": "img/lib/azure2/other/Grafana.svg",
+      "sha256": "a3f8f49e1be10aea6307a9005433b5437140133298db9722544af443287ea18c"
+    },
+    "prometheus": {
+      "source": "img/lib/azure2/other/Prometheus.svg",
+      "sha256": "268b533be3885ddc81d88d0e08bb363209be7011ef9a1bef22f2f658ac581da0"
+    },
+    "monitor": {
+      "source": "img/lib/azure2/management_governance/Monitor.svg",
+      "sha256": "985c5d8b7d646917fbde849cd5d3d5b295a43076fb366dbeee41124682dd7904"
+    },
+    "acr": {
+      "source": "img/lib/azure2/containers/Container_Registries.svg",
+      "sha256": "5abd2c16d2d9d26baf67ebbd0ae4f0f9131fb49a2236a5ece5a9bc3b13018620"
+    },
+    "vault": {
+      "source": "img/lib/azure2/security/Key_Vaults.svg",
+      "sha256": "67a2d3e45df9a8cc2f553beb64bc859d1f7dd437ec0b41cebab347b52c6a2f7f"
+    },
+    "storage": {
+      "source": "img/lib/azure2/storage/Storage_Accounts.svg",
+      "sha256": "098f82d9e8155f38d52eaff9fe8826bfcbde08c4d8f4715c6f23c69697d00e34"
+    }
+  }
+}
