@@ -6,7 +6,7 @@ the infrastructure and observability resources and deployed the Store applicatio
 [Lab 4: Agent Configuration](labs/04-agent-configuration.md) within the approved
 scope, then configure it. Use this handover with attendee
 [Lab 1](labs/01-platform.md) and [Lab 2](labs/02-application.md).
-Operator-only deployment references are in [facilitator preparation](../facilitator/README.md).
+Operator-only deployment references are supplied privately by the facilitator.
 The [agenda](../AGENDA.md) owns scheduling. The handover covers scope, costs,
 platform/application/observability architecture, access and permissions.
 This document does not authorize infrastructure changes. Continue with
@@ -214,6 +214,6 @@ Continue to [Lab 3](labs/03-observability.md), then create/configure the agent i
 [Lab 5](labs/05-agent-validation.md). When later
 labs refer to Lab 1's variables, use the facilitator's handover instead of
 Terraform outputs/state. Operator-only tasks still require the assigned
-operator; pre-provisioned is not a privilege grant. In
-[Lab 8](labs/08-closeout.md), hand cleanup to the provisioning owner unless
+operator; pre-provisioned is not a privilege grant. At closeout,
+hand cleanup to the provisioning owner unless
 explicitly authorized otherwise: do not destroy shared/prebuilt infrastructure.

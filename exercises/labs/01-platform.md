@@ -126,8 +126,8 @@ runtime validation before Labs 4-5:
 > Which supplied settings distinguish KEDA replica scaling from NAP node
 > provisioning, and which live checks remain necessary before Lab 6?
 
-Optional background: [operator preparation](../../facilitator/README.md) and
-[SRE Agent architecture](../sre-agent-architecture.md). Deployment procedures
+Optional background: [SRE Agent architecture](../sre-agent-architecture.md).
+The facilitator supplies operator preparation separately. Deployment procedures
 are owner references outside this attendee walkthrough, not steps to execute here.
 See [AKS kubeconfig access](https://learn.microsoft.com/en-us/azure/aks/control-kubeconfig-access)
 for the distinction between credential retrieval and API access.

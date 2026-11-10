@@ -98,8 +98,8 @@ Optional discussion or later agent prompts; diagram answers are not live proof:
 > prove order processing, public HTTPS health or durable storage. Mark missing
 > evidence explicitly rather than assuming success.
 
-Optional references: [pre-provisioned architecture and source revisions](../pre-provisioned-workshop.md)
-and [operator preparation](../../facilitator/README.md). Deployment procedures remain
+Optional reference: [pre-provisioned architecture and source revisions](../pre-provisioned-workshop.md).
+The facilitator supplies operator preparation separately. Deployment procedures remain
 outside this attendee walkthrough.
 
 ## Checkpoint

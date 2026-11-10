@@ -604,4 +604,4 @@ Review on any approved enabled operational plan. Investigations remain read-only
 - [Custom agents and knowledge-source access](https://learn.microsoft.com/en-us/azure/sre-agent/sub-agents)
 - [Knowledge indexing and retrieval](https://learn.microsoft.com/en-us/azure/sre-agent/tutorial-upload-knowledge-document)
 
-Next: [Lab 6](06-autoscaling.md).
+Next: the facilitator-supplied Lab 6 autoscaling guide, as scheduled in the [agenda](../../AGENDA.md).

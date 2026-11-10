@@ -22,16 +22,15 @@ behavior; supplied infrastructure is not proof of working agent access.
 | 4 | [Agent Configuration](exercises/labs/04-agent-configuration.md) | Create the SRE Agent resource and configure approved capabilities. |
 | 5 | [Agent Validation](exercises/labs/05-agent-validation.md) | Verify live reads, delegation and denied operations. |
 
-Continue with [Lab 6: Autoscaling](exercises/labs/06-autoscaling.md),
-[Lab 7: Challenge](exercises/labs/07-challenge.md) and
-[Lab 8: Closeout](exercises/labs/08-closeout.md) as directed by the agenda.
+The facilitator supplies the Day 2 autoscaling and challenge materials separately.
+Follow the agenda for the scheduled closeout; Lab 8 is not a scheduled session.
 
 ## Supporting Material
 
 - [Presentation index](slides/README.md): workshop decks and lab introductions.
 - [Agent and skill examples](examples/README.md): source material for Lab 4.
 - [Skill catalog](examples/skills/README.md): investigation procedures and evidence handling.
-- [Facilitator preparation](facilitator/README.md): operator-only deployment references.
+- Operator-only deployment references are supplied privately by the facilitator.
 
 ## Safety And Evidence
 
