@@ -91,17 +91,17 @@ footer: 'Evidence first | Scoped access | Anyone may STOP'
 
 <!-- _class: title -->
 
-TWO-DAY WORKSHOP | 09:00-16:00 EACH DAY
+TWO-DAY WORKSHOP | DAY 1 09:00-16:00 | DAY 2 09:00-15:00
 
 # Azure SRE Agent Workshop
 
-- **Day 1:** build the platform and app, observe, configure your agent.
-- **Day 2:** validate the agent, test scaling, investigate and recover.
+- **Day 1:** inspect the supplied platform and app, observe, configure and validate your agent.
+- **Day 2:** test scaling, investigate and recover.
 - **Our challenge:** the same fault for every team; compare the agents' work.
 
 <!--
 TIME: 30 seconds when introducing fundamentals.
-Use this deck as arrival/reference material and integrate welcome into Day 1 fundamentals, 09:30-10:15. It is not an extra scheduled lecture. Arrival checks are optional, not required teaching. Both days finish at 16:00. Ask teams to distinguish a verified result from a plausible explanation; success is evidence and safe recovery, not ranking or scoring.
+Use this deck as arrival/reference material and integrate welcome into Day 1 fundamentals, 09:30-10:15. It is not an extra scheduled lecture. Arrival checks are optional, not required teaching. Day 1 finishes at 16:00; Day 2 finishes at 15:00. Ask teams to distinguish a verified result from a plausible explanation; success is evidence and safe recovery, not ranking or scoring.
 -->
 
 ---
