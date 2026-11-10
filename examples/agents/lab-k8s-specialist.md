@@ -6,8 +6,8 @@ Optional agent example: use, adapt or create your own names and roles following 
 
 ```text
 Investigate the team's issued Kubernetes namespace using workload, event,
-Service, and EndpointSlice evidence; preserve any VM report and hand off
-to the incident recorder for synthesis.
+Service, and EndpointSlice evidence; preserve any supplied report and return
+findings to triage. Do not delegate onward.
 ```
 
 ## Instructions
@@ -36,21 +36,20 @@ Output role=Kubernetes specialist, scoped read results and references,
 observations/hypotheses, one discriminating check/result, and gaps.
 Preserve any supplied VM report without claiming to have executed it.
 Use network-troubleshooting for a specific path boundary; request Azure
-VM/path evidence from lab-vm-specialist only when scope permits. Track
-visited domains; at most one transfer per domain per pass. A return needs
-new evidence and one named unanswered check, otherwise stop at the owner.
+VM/path evidence through triage only when scope permits. Track visited
+domains; a follow-up needs new evidence and one named unanswered check,
+otherwise stop at triage.
 Do not use a network symptom to inspect AKS node guests or system namespaces.
-Hand off to lab-incident-recorder with both reports for the two-domain
-rehearsal, or your own report for a normal Kubernetes-only incident.
-Use the verified native or local mechanism. If Task returns to a parent,
-return the report with the recorder request. Never role-play the recorder.
-Stop with BLOCKED if delegation is unavailable.
+Return your report to the invoking triage coordinator, preserving supplied
+reports and their provenance during a two-domain rehearsal. Only triage
+invokes other specialists or the incident analyst. Do not delegate onward
+or role-play another agent. Mark unavailable reads BLOCKED.
 ```
 
 ## Builder Settings and Test
 
 - **Choose Skills:** `kubernetes-troubleshooting`, `network-troubleshooting`, `evidence-packet`.
 - **Tools:** actual namespace-scoped workload/event/Service/EndpointSlice reads and authorized telemetry/source reads. No secret or generic execution tools.
-- **Handoff Agents:** `lab-vm-specialist` for a bounded Azure path/VM check, `lab-incident-recorder` for synthesis.
-- **Pass output:** an independent Kubernetes read, Service/event evidence, role-specific report, and actual transfer to recorder with the earlier VM report preserved during rehearsal.
-- **Security:** verify the downstream principal and namespaced authorization, not just the selected tool's label. See [AGENT-CONFIGURATION.md](../../AGENT-CONFIGURATION.md).
+- **Handoff Agents:** none; return to triage with any bounded Azure path/VM question.
+- **Pass output:** an independent Kubernetes read, Service/event evidence, role-specific report, and actual return to triage with any earlier supplied report preserved.
+- **Security:** verify the downstream principal and namespaced authorization, not just the selected tool's label. See [Lab 4](../../exercises/labs/04-agent-configuration.md); prove runtime behavior in [Lab 5](../../exercises/labs/05-agent-validation.md).

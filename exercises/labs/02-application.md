@@ -1,7 +1,6 @@
 # Lab 2: Inspect The Pre-Provisioned Application
 
-Day 1 12:00-12:45 is the combined architecture walkthrough with Lab 1;
-12:45-13:00 confirms access across both labs. Use the approved
+Continue the architecture walkthrough and access checks from Lab 1. Use the approved
 [environment handover](../pre-provisioned-workshop.md), participant read access,
 dedicated user kubeconfig and verified context/API. The Store is already deployed;
 do not apply manifests, create namespaces or change networking. The application
@@ -30,17 +29,18 @@ catalog does not prove the broker, consumer or database is healthy.
    RabbitMQ and DocumentDB. The public route is Application Gateway HTTPS to
    `store-front` through a hostless Ingress; frontend Services remain ClusterIP.
    Do not infer a public IP from the `store-front` Service or deploy a replacement.
-3. If approved, use these read-only commands to inspect the same resources:
+3. If approved, use these read-only commands to inspect the same resources.
+   Replace `<workshop-context>` with the assigned context verified in
+   [Lab 1](01-platform.md#aks-configuration-and-readiness-record):
+
+   A user kubeconfig is connection information, not API authorization. These
+   namespace reads require separate approved Kubernetes permissions. If denied,
+   record BLOCKED and use dated owner-supplied evidence; do not request admin access.
 
    ```bash
-   : "${KUBECONFIG:?Use the dedicated approved user kubeconfig}"
-   : "${EXPECTED_CONTEXT:?Use the facilitator-approved context}"
-   : "${API_SERVER:?Use the facilitator-approved exact API URL}"
-   test "$(kubectl config current-context)" = "$EXPECTED_CONTEXT" || exit 1
-   test "$(kubectl --context "$EXPECTED_CONTEXT" config view --minify -o jsonpath='{.clusters[0].cluster.server}')" = "$API_SERVER" || exit 1
-   kubectl --context "$EXPECTED_CONTEXT" -n aks-store-demo get deployments,statefulsets,pods
-   kubectl --context "$EXPECTED_CONTEXT" -n aks-store-demo get services,ingresses,endpointslices
-   kubectl --context "$EXPECTED_CONTEXT" -n aks-store-demo get statefulset documentdb -o yaml
+   kubectl --context "<workshop-context>" -n aks-store-demo get deployments,statefulsets,pods
+   kubectl --context "<workshop-context>" -n aks-store-demo get services,ingresses,endpointslices
+   kubectl --context "<workshop-context>" -n aks-store-demo get statefulset documentdb -o yaml
    ```
 
 4. During the shared access check, open `https://<gateway-public-ip>/` from your
@@ -62,7 +62,7 @@ catalog does not prove the broker, consumer or database is healthy.
    administration surface. If this session is read-only, use labeled facilitator
    evidence and leave participant order validation BLOCKED. Do not expose admin
    services or scale synthetic clients. Record customer/worker replica baselines
-   and access blockers before the 13:00 break.
+   and access blockers in your evidence notes.
 
 ## Network And Data Checks From The Rehearsal
 
@@ -98,9 +98,8 @@ Optional discussion or later agent prompts; diagram answers are not live proof:
 > prove order processing, public HTTPS health or durable storage. Mark missing
 > evidence explicitly rather than assuming success.
 
-Optional references: [pre-provisioned architecture and source revisions](../pre-provisioned-workshop.md),
-[technical setup](../../WORKSHOP-SETUP.md) and
-[operator preparation](../../facilitator/README.md). Deployment procedures remain
+Optional references: [pre-provisioned architecture and source revisions](../pre-provisioned-workshop.md)
+and [operator preparation](../../facilitator/README.md). Deployment procedures remain
 outside this attendee walkthrough.
 
 ## Checkpoint
@@ -112,7 +111,7 @@ Record the current customer/worker replica baseline for later comparison.
 Record UTC, source/revision, PASS/FAIL/BLOCKED and next owner; distinguish your
 reads and approved test order from supplied evidence. A previously healthy
 rehearsal is not today's validation. Any optional nginx target is prepared by
-the provisioning owner, not deployed by attendees during this slot.
+the provisioning owner, not deployed by attendees during this walkthrough.
 
 ## Troubleshooting And Safe Stop
 
@@ -123,4 +122,4 @@ Internet rules, reapply manifests or bypass certificate verification yourself.
 For DocumentDB startup inspect resources/probes and revisions; do not blindly
 delete database pods. Report FAIL/BLOCKED and preserve evidence.
 
-Next: [Lab 3](03-observability.md) at 13:15, after the 13:00-13:15 break.
+Next: [Lab 3](03-observability.md).

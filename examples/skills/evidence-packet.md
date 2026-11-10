@@ -19,7 +19,7 @@ No tools are required for thread synthesis. If verifying evidence, discover actu
 2. Separate observations, competing hypotheses, counterevidence, predicted/actual discriminating results, and confirmed cause only where corroborated. Compare freshness and scope before reconciling contradictory reports. A nearby commit, green status or absence of telemetry is not proof of causation or health.
 3. Preserve missing access, collection, retention and freshness as gaps. Request one bounded read to resolve a contradiction; never manufacture specialist reports or overwrite earlier observations. Trace-visible role/Task transitions prove delegation; headings do not. Label participant-driven transfers MANUAL HANDOVER.
 4. Separate proposed, approved and actually executed actions. Include operator and observed UTC change time only when supplied. Approval is not execution; execution is not recovery. A baseline test with no fault/change is not an incident repair.
-5. Return the contract below in the thread. Require only domains requested by the incident; a multi-domain rehearsal must cite every required independent report. Do not post or write elsewhere.
+5. Return the contract below in the thread to triage; do not delegate onward. Require only domains requested by the incident; a multi-domain rehearsal must cite every required independent report. Do not post or write elsewhere. Investigators draft; only an authorized operator or separately governed workflow publishes to GitHub or storage. Mermaid is optional and NOT CONFIGURED when absent; its absence does not block baseline packet synthesis.
 
 ## Stop and Routing
 

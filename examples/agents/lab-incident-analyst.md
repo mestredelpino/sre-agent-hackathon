@@ -26,7 +26,7 @@ Authorized scope:
 
 ## Builder Settings and Test
 
-- **Choose Skills:** `evidence-packet`, `incident_postmortem_generator`, `mermaid-diagram`.
+- **Choose Skills:** `evidence-packet` for baseline synthesis; `incident_postmortem_generator` and `mermaid-diagram` only if configured. If Mermaid is absent, mark it NOT CONFIGURED and return the evidence packet without a diagram.
 - **Tools:** select only actual independently authorized read capabilities for this role. Skill selection grants no access. Triage additionally needs the runtime's verified delegation capability. Supplied-evidence synthesis needs no live tools. Do not attach write, guest-execution, credential, secret or external-posting capabilities.
 - **Handoff Agents:** none; return results to the invoking triage coordinator.
 - **Run mode:** keep applicable response plans/tasks in Review; verify downstream identity and tool policies separately. Review is not a universal write gate.
@@ -36,5 +36,7 @@ Authorized scope:
 ## Skills And Routing
 
 Use the [bootstrap download and dependency guide](../bootstrap/README.md) for the Microsoft-maintained skills and their supporting files. Download/import is separate from tool installation and permission grants. Follow the scope restrictions above even when upstream playbooks describe broader operations. The local skill routing sections identify candidate domains, not permission for specialists to delegate: return the unanswered domain question and evidence to triage instead.
+
+For both copyable blocks above, Mermaid applies only if configured and loaded. Otherwise return baseline evidence-packet synthesis and mark Mermaid NOT CONFIGURED. Investigators draft in the thread; GitHub or storage publishing is performed only by an authorized operator or separately governed workflow, never by this role.
 
 Only triage selects downstream agents. Specialists and the incident analyst return to their caller; none hands off directly to another specialist. Keep unrelated domains not requested. Triage owns the final diagnosis; the analyst returns synthesis or a postmortem, not a second diagnosis authority. A postmortem before evidenced recovery must be labeled provisional.

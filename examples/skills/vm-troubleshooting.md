@@ -25,6 +25,8 @@ Identify actual offered read tools, effective identity, resource scope and telem
 
 ## Stop and Routing
 
+Return findings and unanswered domain questions to triage; do not delegate onward. Only triage selects another specialist or the analyst. Domain skill suggestions above are not agent handoff authority.
+
 Stop on ambiguous scope, denied access, secrets exposure, exhausted evidence, or unsupported guest inspection. No automatic fix, guest execution, elevation, external posting or collection changes. Permit at most one transfer to each domain per investigation pass; a return requires new evidence and a named unanswered check. Otherwise escalate to the incident owner, preserving gaps rather than looping.
 
 ## Handoff Contract

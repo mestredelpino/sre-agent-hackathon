@@ -1,5 +1,25 @@
 # Workshop Presentations
 
+## Lab Presentation Index
+
+The `lab-` prefix matches the numbered [lab worksheets](../exercises/labs/),
+not the foundational library numbering. Labs 1 and 2 share one architecture
+deck. Foundation decks `01` (welcome), `02` (fundamentals), `03` (L100),
+and historical `04` (red/blue) retain their existing names.
+
+| Lab | Presentation | HTML |
+| --- | --- | --- |
+| 1-2 | [Workshop architecture](present/lab-01-02-workshop-architecture.md) | [HTML](html/lab-01-02-workshop-architecture.html) |
+| 3 | [Observability](present/lab-03-observability.md) | [HTML](html/lab-03-observability.html) |
+| 4 | [Agent configuration](present/lab-04-agent-configuration.md) | [HTML](html/lab-04-agent-configuration.html) |
+| 5 | [Agent validation](present/lab-05-agent-validation.md) | [HTML](html/lab-05-agent-validation.html) |
+| 6 | [Autoscaling](present/lab-06-autoscaling.md) | [HTML](html/lab-06-autoscaling.html) |
+| 7 | [Challenge briefing](present/lab-07-challenge-briefing.md) | [HTML](html/lab-07-challenge-briefing.html) |
+| 8 | [Closeout](present/lab-08-closeout.md) | [HTML](html/lab-08-closeout.html) |
+
+The delivery notes below retain historical schedules; use the [agenda](../AGENDA.md)
+and lab worksheets for the current route.
+
 ## Current Two-Day Slots
 
 The [two-day agenda](../AGENDA.md) schedules Fundamentals and Azure SRE Agent

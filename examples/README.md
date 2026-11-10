@@ -1,6 +1,6 @@
 # Agent And Skill Examples
 
-For the [two-day workshop](../exercises/two-day-workshop.md), follow [Lab 4's portal instructions](../exercises/labs/04-agent-configuration.md): start with triage, the Kubernetes specialist and the analyst, using investigation, Kubernetes and evidence-packet skills. Prove runtime behavior in [Lab 5](../exercises/labs/05-agent-validation.md). Lab 3 uses the supplied main agent before custom configuration.
+For the [pre-provisioned workshop](../exercises/pre-provisioned-workshop.md), follow [Lab 4's portal instructions](../exercises/labs/04-agent-configuration.md): create your agent, then start with triage, the Kubernetes specialist and the analyst, using investigation, Kubernetes and evidence-packet skills. Prove runtime behavior in [Lab 5](../exercises/labs/05-agent-validation.md). Lab 3 establishes a human telemetry baseline before agent creation; its agent prompts are deferred follow-up.
 
 These are adaptable source examples, not mandatory installed IDs or a role-count target. Network/VM procedures and upstream additions are optional when relevant; the current workshop platform is AKS Store, not a separately supplied VM lab.
 
@@ -30,7 +30,7 @@ The three `lab-*` skill migration pointers and the old [recorder worksheet](agen
 
 Record your chosen role/skill names, revisions, discovery descriptions, procedure ownership and runtime in the private facilitator-approved environment record. Keep incident scope and resource bindings outside reusable procedures. Role count and names may differ; maintain explicit evidence transfer and approval boundaries.
 
-Follow the [Azure SRE Agent publishing checklist](../SRE-AGENT-SETUP.md) and [configuration guide](../AGENT-CONFIGURATION.md). Skill frontmatter is source metadata, not a deployment schema. Copy the Markdown body into the supported skill content field; include frontmatter only if the offered whole-document editor supports it. Agent worksheets supply Instructions and Handoff Description fields, not an import bundle. Repository links may need approved, accessible citations in the saved content. Opening, moving or copying files does not publish or install anything, and does not configure VS Code discovery. Other runtimes need their own supported format, discovery rules and validation.
+Follow [Lab 4's publishing steps](../exercises/labs/04-agent-configuration.md) and [Lab 5's runtime checks](../exercises/labs/05-agent-validation.md). Skill frontmatter is source metadata, not a deployment schema. Preserve the supported SKILL.md editor's synchronized frontmatter and copy the procedure body below it. Agent worksheets supply Instructions and Handoff Description fields, not an import bundle. Repository links may need approved, accessible citations in the saved content. Opening, moving or copying files does not publish or install anything, and does not configure VS Code discovery. Other runtimes need their own supported format, discovery rules and validation.
 
 Examples grant no permissions or automatic tool access. Independently enforce identity, own-resource/namespace scope, connector credentials and read-only tool policies. Keep every used response plan/task explicitly in Review; it is not a universal write gate. Repairs require a separately authorized operator, approval, rollback and fresh recovery verification. Do not attach arbitrary execution, secret access or write-capable tools to make an example work.
 
@@ -45,3 +45,9 @@ Review custom definitions by the same observable behavior, not exact example IDs
 ## Local Source Checks
 
 Run `node examples/skills/verify.mjs` and `python3 examples/bootstrap/bootstrap.py worksheets --check` from the repository root. They validate the local skill sources, imported skill IDs, five worksheet bindings, manual/CLI parity and local links, not attendee naming choices or Azure installation. The optional draw.io skill is published manually through the portal; it does not change the bootstrap's publication set. Regenerate supplied worksheets with `python3 examples/bootstrap/bootstrap.py worksheets`; edit the bootstrap definitions first, not the generated worksheets. Live publishing, loading, authorization and behavior still require the acceptance evidence above.
+
+The current general checker has existing recorder/deleted-guide failures, and
+the worksheets have drifted from generated output. Do not regenerate over reviewed
+portal worksheets without reconciling and reviewing the differences first. See
+the [official review](../exercises/official-documentation-review.md) for product
+sources and unresolved tenant-specific behavior.

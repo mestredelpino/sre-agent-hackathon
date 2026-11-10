@@ -25,6 +25,8 @@ Inventory actual offered read tools, their execution identity, scopes, and netwo
 
 ## Stop and Routing
 
+Return findings and unanswered domain questions to triage; do not delegate onward. Only triage selects another specialist or the analyst. Domain skill suggestions above are not agent handoff authority.
+
 Stop on ambiguous scope, denied access, secrets exposure, exhausted evidence, or a required unsupported capability. Never widen permissions, enable collection, execute guest commands, repair resources, or post externally. Permit at most one transfer to each domain per investigation pass; a return requires new evidence and a named unanswered check. Otherwise hand off to the incident owner with an explicit blocker rather than loop.
 
 ## Handoff Contract

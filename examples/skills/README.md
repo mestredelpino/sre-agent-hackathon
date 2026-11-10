@@ -2,7 +2,7 @@
 
 Use the [attendee guide](../README.md) with [Lab 4's portal-first setup](../../exercises/labs/04-agent-configuration.md). Start with `evidence-led-investigation`, `kubernetes-troubleshooting` and `evidence-packet` for AKS Store; the other local procedures and pinned upstream library are optional extensions. These are adaptable sources, not mandatory installed IDs. Apply the same behavioral acceptance to custom skills, without scoring or rankings; prove relevant load/use and scoped reads in [Lab 5](../../exercises/labs/05-agent-validation.md).
 
-These Markdown files are source artifacts, not installed Copilot customizations, Azure resources or a deployment/import bundle. Publish through the available Azure SRE Agent skill authoring surface following [SRE-AGENT-SETUP.md](../../SRE-AGENT-SETUP.md). The YAML frontmatter records the source name and discovery description; it is not a native agent configuration schema. Resource scope, topology, baseline, UTC window and approval owners are supplied from a private environment record, not embedded in a domain procedure.
+These Markdown files are source artifacts, not installed Copilot customizations, Azure resources or a deployment/import bundle. Publish through the available Azure SRE Agent skill authoring surface following [Lab 4](../../exercises/labs/04-agent-configuration.md), then validate in [Lab 5](../../exercises/labs/05-agent-validation.md). The YAML frontmatter records the source name and discovery description; it is not a native agent configuration schema. Resource scope, topology, baseline, UTC window and approval owners are supplied from a private environment record, not embedded in a domain procedure.
 
 ## Catalog
 
@@ -17,6 +17,8 @@ These Markdown files are source artifacts, not installed Copilot customizations,
 | [drawio-diagram](drawio-diagram.md) | Editable draw.io architecture, dependency and incident views grounded in evidence | Thread evidence; participant reviews XML in an approved local editor | lab-incident-analyst (optional) |
 
 Select real offered tools by capability, not copied tool IDs. A read-sounding tool label does not override its underlying credentials. Inspect agent, skill and connector tools independently. The seven-file catalog is not a request to activate all seven together: follow the product's current skill limits and prove relevant loading in the actual investigation. The draw.io procedure is an optional portal-authored extension, not a change to the bootstrap's pinned publication set. Pinned upstream sources and dependency details are in the [optional bootstrap guide](../bootstrap/README.md#download-and-validate).
+
+Only triage delegates: triage -> specialist -> triage -> analyst -> triage. Domain routing below identifies questions to return to triage, not permission for specialists to delegate onward. Baseline synthesis uses `evidence-packet`; Mermaid is optional and is NOT CONFIGURED when absent. Investigators draft in the thread; GitHub or storage publishing belongs only to an authorized operator or separately governed workflow. Review mode alone does not enforce this boundary. Inspect user-defined hooks too: an Allow decision can override a global deny; retain independent identity and connector restrictions.
 
 ## Migration
 

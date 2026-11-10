@@ -20,3 +20,4 @@
 examples/bootstrap/.state/
 examples/bootstrap/target.local.json
 **/__pycache__/
+slides/present/03-SRE-Agent-L100.pptx

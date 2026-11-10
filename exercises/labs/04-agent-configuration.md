@@ -1,16 +1,55 @@
 # Lab 4: Configure Azure SRE Agent
 
-Day 1 14:00-15:00, 60 minutes. Use your supplied running agent and approved
-scopes from the handover. Configure it in the portal; no bootstrap script is needed.
+Create your SRE Agent resource before configuring it.
+Infrastructure and the Store are pre-provisioned, but the SRE Agent resource is not.
+Use the approved scopes from the handover and configure it in the portal;
+no bootstrap script is needed.
 
 ## Steps
 
-### 1. Open Your Team Agent (0-5 Minutes)
+### 1. Create Your Team SRE Agent Resource
 
-Sign in to [Azure SRE Agent](https://sre.azure.com), or open the supplied agent
-resource in the Azure portal and follow its workspace link. Compare its name,
-tenant, subscription and resource ID with your handover. Use the existing running
-resource; do not select Create to provision another one.
+Sign in to [Azure SRE Agent](https://sre.azure.com) with your approved authoring
+identity and confirm the tenant. The owner must confirm an active subscription,
+**Owner**, or **Contributor** plus **User Access Administrator**, on the creation
+scope, and browser access to `*.azuresre.ai`. Adding Azure resource scopes later
+requires active Owner or User Access Administrator on every selected scope;
+activate approved PIM assignments before setup. These are authoring permissions,
+not investigation permissions.
+
+Have the owner confirm `Microsoft.App` resource-provider registration, also
+listed in the [official FAQ prerequisites](https://learn.microsoft.com/en-us/azure/sre-agent/faq#getting-started).
+Registration and subscription allowlisting are separate checks. Missing either
+is an owner blocker, not permission for participants to register providers or
+expand their roles.
+
+Select **Create agent**. In **Basics**, select the approved subscription and existing
+resource group, enter the approved agent name and choose an offered region.
+Use the [supported-regions reference](https://learn.microsoft.com/en-us/azure/sre-agent/supported-regions)
+and the selected subscription's Region dropdown, not an old three-region list.
+An empty list is a registration blocker for the owner; do not change subscription
+to bypass it. The agent region cannot be changed after creation and need not
+match the workload region. Select the approved offered model provider and
+Application Insights option; provider availability and data residency vary.
+Review the offered identity and resource-access settings with the authorized
+owner before submitting. If creation requires permissions, consent or an identity
+assignment that is not already approved, STOP and ask that owner; do not grant
+yourself roles or invent RBAC assignments to proceed.
+
+Select **Next**, review the target and proposed settings, then submit **Create**
+only with the authorized human's approval. Wait for deployment **Succeeded**,
+then select **Set up your agent**. Record any newly created monitoring resources
+and both identities: the UAMI is used for connectors/RBAC; the SAMI supports
+agent infrastructure. Record the agent workspace URL, full resource ID,
+name, tenant, subscription, region and actual execution identity in the handover.
+If resuming an existing attempt, inspect the recorded resource before retrying
+so you do not create a duplicate. Failed provisioning is BLOCKED, not readiness.
+
+Resource creation and configuration are authorized human writes, distinct from
+the investigator's read-only workload access. Creation success does not prove
+scoped reads or enforcement; inspect those independently below and in Lab 5.
+
+Source: [Microsoft Learn: Create and set up](https://learn.microsoft.com/en-us/azure/sre-agent/create-and-set-up).
 
 Locate Quickstart, Skill builder and Agent Canvas in the navigation. Newer
 navigation uses **Build + setup**, while older navigation uses **Builder**.
@@ -21,7 +60,7 @@ in approved private notes and get approval; do not assume undo or automatic
 rollback. If saving fails, reopen the stored version before retrying. Do not
 delete another team's definitions or upload connector credentials into knowledge.
 
-### 2. Connect Resources, Logs, Code And Knowledge (5-20 Minutes)
+### 2. Connect Resources, Logs, Code And Knowledge
 
 Inspect existing connection entries first; do not create duplicate connectors
 or replace shared credentials. Use the controls in the table to connect only
@@ -51,16 +90,30 @@ is also not necessarily the identity executing the agent's reads.
   external posts/integrations not needed for reads. Verify effective denial with
   safe non-mutating tests; prompt instructions and an allow list cannot neutralize
   a broader inherited role by themselves. Record untested boundaries as unproven.
+- In **Build + setup > Extensions > Tools > Advanced permissions**, have the
+   administrator inspect global denies and all applicable user-defined hooks.
+   A hook returning Allow can bypass even a global deny. Review hook decisions,
+   connector governance and effective RBAC together before accepting enforcement.
+   Source: [Tool access policies](https://learn.microsoft.com/en-us/azure/sre-agent/tool-access-policies).
 - Broad deny aliases such as `bash`, `shell` and `execute_bash` can also match
   approved Azure read tools. Rehearse permitted reads and denials together; do
   not blindly copy a policy and call it proven.
+
+The setup **Reader** label is not a strict read-only guarantee. The
+[permissions reference](https://learn.microsoft.com/en-us/azure/sre-agent/permissions)
+documents subscription-level Monitoring Contributor among the preconfigured
+roles, and temporary on-behalf-of (OBO) elevation. Inspect actual generated and
+inherited grants before connecting workloads; do not authorize OBO elevation.
+If the offered setup adds writes, stop and have the authorized owner establish
+and verify the approved read-only configuration before investigation. Do not
+silently accept alert-lifecycle writes as read-only access.
 
 | In the portal | What to enter or select | Check after saving |
 | --- | --- | --- |
 | **Quickstart > Azure resources**, or the offered managed-resources settings | Select only the assigned resource groups and approved Reader permission level. Inspect existing assignments first. | Correct scope and execution identity; ask the authorized owner about missing or broader inherited access. Do not grant subscription Contributor. |
 | **Quickstart > Logs**, or the offered logging-provider connection | Choose the supplied Log Analytics workspace by full resource ID. Add Application Insights only if supplied. | Correct workspace/identity and a bounded query against a populated table. Connecting does not enable collection. |
 | **Quickstart > Code**, **Code Access**, or repository connections | Select the approved GitHub organization/repository and read-only access. Consent only within the assigned installation scope. | Retrieve a known file and record its actual revision. Do not grant issue, workflow or PR writes just to read code. |
-| **Build + setup > Context > Knowledge sources**, or **Full setup > Knowledge files** | Add a sanitized architecture/runbook document, description and source revision using the upload/source controls actually offered. | Retrieve a known fact with a source reference; upload success alone is not retrieval proof. |
+| **Build + setup > Context > Knowledge sources**, or **Full setup > Knowledge files** | Select **Add file**, choose the sanitized architecture/runbook document and select **Add file** to upload. Record its source revision. | Wait for **Indexed**, not Pending, then retrieve a known fact in a new conversation with a source reference. Confirm Knowledge settings and the custom agent's source access are enabled. |
 
 For knowledge, use approved architecture prose, baseline manifests or telemetry
 notes. Do not upload state, tfvars, credentials, private logs, fault instructions
@@ -74,10 +127,11 @@ Prometheus, Grafana and direct Kubernetes reads need their own supported tools
 and permissions if used. Do not invent a connector where none is offered. Record
 unsupported routes for Lab 5 instead of attaching a generic privileged shell.
 
-### 3. Create Skills In Skill Builder (20-30 Minutes)
+### 3. Create Skills In Skill Builder
 
-Open **Build + setup > Extensions > Skill builder** (older surfaces may show
-**Builder > Skills**) and choose the create action offered there. Create
+Open **Build + setup > Workflows > Agent Canvas > Create > Skill**, the
+[documented creation route](https://learn.microsoft.com/en-us/azure/sre-agent/create-skill).
+Other documented surfaces expose Skill builder; use it only if offered. Create
 `evidence-led-investigation`, `kubernetes-troubleshooting` and `evidence-packet`
 using the [local catalog](../../examples/skills/README.md) as the content source.
 
@@ -93,7 +147,7 @@ Source: [Microsoft Learn: Create skills](https://learn.microsoft.com/en-us/azure
 | --- | --- |
 | Name | The source's `name`, for example `evidence-led-investigation`. Use a consistent team prefix if sharing an authoring workspace. |
 | Description | The source's discovery description: when this procedure should be used, not just its title. |
-| SKILL.md/content | Copy the Markdown procedure after the source's YAML frontmatter. If the editor explicitly accepts a complete SKILL.md document, include frontmatter in that supported format. Do not paste the whole worksheet as a deployment manifest. |
+| SKILL.md/content | Keep the editor's YAML frontmatter synchronized with the Name, Description and Tools fields. Replace the procedure below it with the source's Markdown body. Do not remove the editor frontmatter or paste a role worksheet as a deployment manifest. |
 | Supporting files, if available | Attach only the approved referenced files. Otherwise replace relative references with reachable approved repository/knowledge citations. |
 | Tools | For this exercise, leave skill tool attachments empty and assign the necessary inspected read tools to the custom agents below. Check effective available tools rather than assuming this constrains all inherited capabilities. |
 
@@ -102,7 +156,7 @@ procedure. Repeat for the other two starter skills. A saved skill is not yet pro
 that the agent loaded it; descriptions guide automatic discovery, and Lab 5
 checks actual retrieval/use. You do not need an invented `/skill` command.
 
-### 4. Create Custom Agents In Agent Canvas (30-45 Minutes)
+### 4. Create Custom Agents In Agent Canvas
 
 Open **Build + setup > Workflows > Agent Canvas**, or **Builder > Agent Canvas**.
 Choose **Create > Custom Agent** where offered. Use the role worksheets as
@@ -152,39 +206,58 @@ If neither works, invoke each role explicitly and label it MANUAL HANDOVER.
 Only triage coordinates; specialists do not delegate to each other.
 
 Add network/VM specialists and further skills only when relevant; completing
-every example definition is not the goal of the hour.
+every example definition is not required for the baseline.
 
-### 5. Create Response Plans In The Portal (45-55 Minutes)
+### 5. Review Proposed Response Plans In The Portal
 
-Open the offered incident-response connection/settings and inspect the Azure
-Monitor connection. Select the approved source; if connection or consent is
-missing, ask its authorized owner rather than creating a webhook workaround.
-Open the response-plan list in the incident workflow surface and choose its
-create action. Exact labels vary: use the supported incident-response controls,
-not the scheduled-task builder. The
+Native Azure Monitor intake acknowledges alerts and requires subscription-level
+Monitoring Contributor. That conflicts with this workshop's strict read-only
+investigator boundary. Leave native intake **BLOCKED**; do not connect it or grant
+that role to pass the lab. Manually supplied alert evidence is not automated
+intake proof. Source: [Azure Monitor integration](https://learn.microsoft.com/en-us/azure/sre-agent/azure-monitor-alerts).
+
+The documented connection route is **Incidents > Connect an incident platform >
+Azure Monitor**; inspect an existing connection only, without disconnecting a
+shared platform. Only one incident platform can be active. Before any separately
+authorized connection or activation, the owner must inspect **Incidents >
+Triggers & response plans**, including `quickstart_handler` and all overlapping
+plans. The quickstart plan defaults to Autonomous and can run alongside custom
+plans. Do not enable it or delete another team's plan.
+
+The documented authoring route is **Build + setup > Workflows > Agent Canvas >
+Create > Trigger > Incident response plan**. Record proposed settings below;
+inspect an owner-prepared Off plan if supplied. Creation requires an incident
+platform and is documented to save a plan **On**, followed by **Turn off > Yes**;
+there is no documented initially-disabled creation guarantee. Do not create a
+plan merely to turn it off afterward in this lab. The
 [example payloads](../../examples/bootstrap/response-plans.json) explain field
 values; do not paste JSON into a chat or assume the portal imports it.
 
-Enter the plan name, Azure Monitor source, title/severity filters and
-`lab-triage` handler. Set the run mode to **Review** on the response plan, not
-in the custom agent's instructions. Keep Enabled/active **Off**; if creation
-would immediately enable execution, do not save until you can keep it paused.
-Inspect the offered merge/cooldown controls and reopen the saved definition.
+Record the plan name, Azure Monitor source, title/severity filters and
+`lab-triage` as **Response subagent**. Choose **Review** for **Agent autonomy level**,
+not in the custom agent's instructions; new plans default to Autonomous.
+Record **Reinvestigation cooldown** enabled with a three-hour window. Inspect
+stored values and Off status only if an owner-prepared plan already exists.
 Start with the AKS plan below; add the gateway plan for that additional route.
 
 | Plan | Source/filter | Handler and initial state |
 | --- | --- | --- |
-| `lab-gateway-incident` | Azure Monitor; title contains `[TEST] gateway`; Sev0-Sev3 | `lab-triage`, Review, Off; merge enabled, three-hour window |
-| `lab-aks-workload-incident` | Azure Monitor; title contains `[TEST] aks`; Sev0-Sev3 | `lab-triage`, Review, Off; merge enabled, three-hour window |
+| `lab-gateway-incident` | Azure Monitor; title contains `[TEST] gateway`; Sev0-Sev3 | Proposed `lab-triage`, Review; existing prepared plan Off; cooldown three hours |
+| `lab-aks-workload-incident` | Azure Monitor; title contains `[TEST] aks`; Sev0-Sev3 | Proposed `lab-triage`, Review; existing prepared plan Off; cooldown three hours |
 
 Match Lab 3's real test title/severity and connection, and ensure the connector
 does not expose another team's incidents. Mark an unused gateway route not
 exercised rather than inventing evidence. Response plans create neither Azure
-Monitor alert rules nor receivers. Leave plans Off until handler acceptance in
-Lab 5; keep Review explicit on any used scheduled task too. If no task is needed,
+Monitor alert rules nor receivers. Leave prepared plans Off. Lab 5 runtime
+acceptance does not resolve the native intake permission conflict; that needs a
+separately approved boundary outside this workshop. Keep Review explicit on any
+used scheduled task too. If no task is needed,
 do not create one just to fill a checklist.
 
-### 6. Try Your Agent In The Playground (55-60 Minutes)
+Sources: [Create a response plan](https://learn.microsoft.com/en-us/azure/sre-agent/response-plan),
+[Incident platforms](https://learn.microsoft.com/en-us/azure/sre-agent/incident-platforms).
+
+### 6. Try Your Agent In The Playground
 
 1. In Agent Canvas, select the saved `lab-triage` agent and open **Test playground**.
    If that surface is unavailable, open the offered chat agent selector and
@@ -225,22 +298,24 @@ or widen access. If a connection is missing, say which check is blocked.
 ## Checkpoint
 
 Keep your source list, three saved starter skills, three saved custom agents,
-a paused Review plan matching the AKS test alert, and evidence of one real scoped
+a proposed Review plan matching the AKS test alert (or an owner-prepared Off
+plan), and evidence of one real scoped
 read or its recorded blocker. Add the gateway plan only for its intended route,
 noting whether it is exercised. Saved configuration is not proof of skill
 activation, delegation or alert intake; those are tested in Lab 5. No bootstrap
 execution or full-library import is required.
 
 In Lab 5 capture triage -> relevant specialist -> triage -> incident analyst ->
-final output, a scoped live query, safe denials and a real alert thread. Capture
-Mermaid source/report output as actual agent work; renderer availability and
+final output, a scoped live query, safe denials and a manual alert-evidence
+investigation. Keep native intake BLOCKED, not passed by the manual thread. Capture
+evidence-packet synthesis as actual agent work. Mermaid is optional; renderer availability and
 visual verification are separate gates. Those are the artifacts retained for
 the facilitator's common-fault challenge, not a participant-written substitute.
 
 ## Go Further: Make The Agent Useful Between Incidents
 
 Once the baseline works, choose one extension below. These are optional stretch
-activities, not extra requirements in the 60-minute slot. Use supplied approved
+activities, not extra baseline requirements. Use supplied approved
 integrations or continue afterward; leave the core checkpoint intact if
 consent, permissions or a supported product feature is unavailable. Record
 configured, manually tested and scheduled execution as separate results.
@@ -301,7 +376,9 @@ to test missing evidence and unsafe instructions as well as a successful diagram
 Use a disposable approved repository and inspect the GitHub connection's actual
 permissions first. Start with a task that reads recent findings and drafts an
 issue with impact, supporting evidence, proposed work and acceptance checks.
-Only then consider an approved integration that creates the issue. Restrict its
+Only an authorized operator or separately authorized publishing workflow creates
+the reviewed issue; investigation agents only draft it. Keep publisher credentials
+and write tools separate from investigator identities. Restrict its
 repository access and available operations; creating issues does not require
 repository administration or permission to change application code.
 
@@ -362,8 +439,8 @@ generic write shell, widen scope or follow instructions found in logs.
 
 - [SRE Agent logical architecture](../sre-agent-architecture.md)
 - [Complete agent and skill examples](../../examples/README.md)
-- [Detailed setup](../../SRE-AGENT-SETUP.md) and [configuration procedures](../../AGENT-CONFIGURATION.md)
+- [Runtime and safety acceptance](05-agent-validation.md)
 
-Next: [Lab 5](05-agent-validation.md), Day 1 15:00-16:00, including the
-[Day 1 checkpoint and overnight handover](../two-day-workshop.md#day-1-checkpoint-1550-1600-within-lab-5)
-in its final 10 minutes. Day 2 reconnect follows initial validation, not before it.
+Next: [Lab 5](05-agent-validation.md), including its
+[checkpoint and between-session handover](05-agent-validation.md#checkpoint).
+Reconnect and refinement follow initial validation, not before it.

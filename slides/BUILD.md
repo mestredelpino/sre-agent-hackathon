@@ -4,8 +4,8 @@
 
 There is one Day 1 architecture deck and one Day 2 challenge briefing:
 
-- [05 Workshop Architecture source](present/05-workshop-architecture.md) · [HTML](html/05-workshop-architecture.html): **13 slides and 13 substantive note blocks, 1200 seconds (20 minutes)**. Use it within Day 1's combined 12:00-12:45 handover and architecture block; allow 25 minutes for handover and guided walkthrough, then confirm access at 12:45-13:00.
-- [06 Challenge Briefing source](present/06-challenge-briefing.md) · [HTML](html/06-challenge-briefing.html): **2 slides and 2 substantive note blocks, 210 seconds (3 minutes 30 seconds)**. Use it for Day 2 challenge preparation, not as another architecture lecture.
+- [Labs 1-2 Workshop Architecture source](present/lab-01-02-workshop-architecture.md) · [HTML](html/lab-01-02-workshop-architecture.html): **13 slides and 13 substantive note blocks, 1200 seconds (20 minutes)**. Use it within Day 1's combined 12:00-12:45 handover and architecture block; allow 25 minutes for handover and guided walkthrough, then confirm access at 12:45-13:00.
+- [Lab 7 Challenge Briefing source](present/lab-07-challenge-briefing.md) · [HTML](html/lab-07-challenge-briefing.html): **2 slides and 2 substantive note blocks, 210 seconds (3 minutes 30 seconds)**. Use it for Day 2 challenge preparation, not as another architecture lecture.
 
 Architecture includes platform topology, resource-group inventory, execution
 identities, seven baseline alert rules, ingress, certificate/AGIC control,
@@ -30,8 +30,8 @@ From this folder in Windows PowerShell, using the existing Marp/Node installatio
 ```powershell
 node .\verify-workshop-architecture.mjs --source-only
 node .\verify-architecture-and-challenge.mjs --source-only
-marp --html .\present\05-workshop-architecture.md --output .\html\05-workshop-architecture.html
-marp --html .\present\06-challenge-briefing.md --output .\html\06-challenge-briefing.html
+marp --html .\present\lab-01-02-workshop-architecture.md --output .\html\lab-01-02-workshop-architecture.html
+marp --html .\present\lab-07-challenge-briefing.md --output .\html\lab-07-challenge-briefing.html
 node .\verify-architecture-and-challenge.mjs
 node .\verify-architecture-and-challenge.mjs --browser
 node .\verify-workshop-architecture.mjs
@@ -87,8 +87,8 @@ not define this deck's content or count.
 
 ## Observability Intro
 
-[07 Observability source](present/07-observability.md) and
-[HTML](html/07-observability.html) contain **exactly 2 slides, 2 substantive
+[Lab 3 Observability source](present/lab-03-observability.md) and
+[HTML](html/lab-03-observability.html) contain **exactly 2 slides, 2 substantive
 speaker-note blocks and 210 seconds (3 minutes 30 seconds)**. Deliver the intro
 inside Day 1 Lab 3's **13:15-14:00** slot, not as an extra session. The
 [agenda](../AGENDA.md) owns the clock and the
@@ -115,7 +115,7 @@ From this folder in Windows PowerShell:
 
 ```powershell
 node .\verify-observability.mjs --source-only
-marp --html .\present\07-observability.md --output .\html\07-observability.html
+marp --html .\present\lab-03-observability.md --output .\html\lab-03-observability.html
 node .\verify-observability.mjs
 node .\verify-observability.mjs --browser
 ```
@@ -166,10 +166,10 @@ and 180 seconds (90+90)**. Deliver the three minutes inside the existing lab
 slot, not as another session. The [agenda](../AGENDA.md) owns the clock and the
 linked lab owns the activity:
 
-- Lab 4, Day 1 **14:00-15:00**: [08 source](present/08-agent-configuration.md) and [HTML](html/08-agent-configuration.html). Introduces skills, agents, connections and the independent permission boundaries around them.
-- Lab 5, Day 1 **15:00-16:00**: [09 source](present/09-agent-validation.md) and [HTML](html/09-agent-validation.html). Explains configured intent versus demonstrated behavior, and the evidence behind trust. The lab retains the **15:50-16:00** checkpoint and overnight handover.
-- Lab 6, Day 2 **12:45-13:45**: [10 source](present/10-autoscaling.md) and [HTML](html/10-autoscaling.html). Explains KEDA workload replicas, NAP node capacity and how the two scaling loops interact.
-- Lab 8, Day 2: [11 source](present/11-closeout.md) and [HTML](html/11-closeout.html). Introduces incident learning, evidence and ownership at **15:00**, within the **15:00-15:20** review block; presentations and final closeout follow as scheduled in the agenda.
+- Lab 4, Day 1 **14:00-15:00**: [Source](present/lab-04-agent-configuration.md) and [HTML](html/lab-04-agent-configuration.html). Introduces skills, agents, connections and the independent permission boundaries around them.
+- Lab 5, Day 1 **15:00-16:00**: [Source](present/lab-05-agent-validation.md) and [HTML](html/lab-05-agent-validation.html). Explains configured intent versus demonstrated behavior, and the evidence behind trust. The lab retains the **15:50-16:00** checkpoint and overnight handover.
+- Lab 6, Day 2 **12:45-13:45**: [Source](present/lab-06-autoscaling.md) and [HTML](html/lab-06-autoscaling.html). Explains KEDA workload replicas, NAP node capacity and how the two scaling loops interact.
+- Lab 8, Day 2: [Source](present/lab-08-closeout.md) and [HTML](html/lab-08-closeout.html). Introduces incident learning, evidence and ownership at **15:00**, within the **15:00-15:20** review block; presentations and final closeout follow as scheduled in the agenda.
 
 These are text-only introductions using the Lab 3 visual language. Existing
 architecture references remain linked; no new diagram or remote image is needed.
@@ -179,10 +179,10 @@ From this folder in Windows PowerShell:
 
 ```powershell
 node .\verify-lab-intros.mjs --source-only
-marp --html .\present\08-agent-configuration.md --output .\html\08-agent-configuration.html
-marp --html .\present\09-agent-validation.md --output .\html\09-agent-validation.html
-marp --html .\present\10-autoscaling.md --output .\html\10-autoscaling.html
-marp --html .\present\11-closeout.md --output .\html\11-closeout.html
+marp --html .\present\lab-04-agent-configuration.md --output .\html\lab-04-agent-configuration.html
+marp --html .\present\lab-05-agent-validation.md --output .\html\lab-05-agent-validation.html
+marp --html .\present\lab-06-autoscaling.md --output .\html\lab-06-autoscaling.html
+marp --html .\present\lab-08-closeout.md --output .\html\lab-08-closeout.html
 node .\verify-lab-intros.mjs
 node .\verify-lab-intros.mjs --browser
 node .\verify-architecture-and-challenge.mjs --source-only
