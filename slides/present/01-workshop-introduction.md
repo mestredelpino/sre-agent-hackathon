@@ -145,21 +145,20 @@ Arrival is 09:00-09:30 for optional access checks. Fundamentals includes welcome
 
 <!-- _class: compact -->
 
-# Day 1 | Build, observe and configure
+# Day 1 | Inspect, configure and validate
 
 | Time | Session |
 | --- | --- |
-| 12:00-12:15 | Architecture, scope, costs and deployment briefing |
-| 12:15-13:15 | Lab 1: deploy the platform |
-| 13:15-13:45 | Lab 2: deploy and test the application |
-| 13:45-14:00 | Break |
-| 14:00-14:45 | Lab 3: dashboards and alert rules |
-| 14:45-15:45 | Lab 4: configure SRE Agent |
-| 15:45-16:00 | Day 1 checkpoint and overnight handover |
+| 12:00-12:15 | Architecture, scope, costs and access briefing |
+| 12:15-13:00 | Labs 1-2: platform and application validation |
+| 13:00-13:15 | Break |
+| 13:15-14:00 | Lab 3: observability validation |
+| 14:00-15:00 | Lab 4: create and configure SRE Agent |
+| 15:00-16:00 | Lab 5: validate SRE Agent and Day 1 checkpoint |
 
 <!--
 TIME: 45 seconds; refer back during the day.
-At noon confirm exact targets, identities, cost approval, recovery ownership and STOP. Lab 1 creates the platform and agent in parallel. Lab 2 proves public access, workload readiness and synthetic orders before telemetry interpretation. Lab 3 checks fresh metrics/logs, the Grafana dashboard and an actual alert notification path. Lab 4 configures scoped connections, tools, skills/custom agents and explicit Review plans, then performs a first real read. Before leaving, stop synthetic load, preserve protected state/configuration and record overnight owner, budget and blockers.
+At noon confirm exact targets, identities, cost approval, recovery ownership and STOP. Infrastructure, Store and observability are already deployed. From 12:15 to 13:00, Labs 1-2 validate the supplied platform and application: approved access, workload readiness, public HTTPS and authorized synthetic-order evidence. Participants do not deploy replacements. Lab 3 establishes the human telemetry baseline using fresh metrics/logs and the supplied Grafana dashboard. Lab 4 creates the participant's SRE Agent and configures scoped connections, skills and custom agents. Lab 5 must run on Day 1: verify actual reads, retrieval, delegation and enforced denials, recording blocked gates honestly. Native Azure Monitor intake remains blocked under the strict read-only boundary. Reserve 15:50-16:00 within Lab 5 for the checkpoint, overnight owner, budget and blockers; stop synthetic load and preserve protected configuration.
 -->
 
 ---
@@ -187,53 +186,20 @@ Reconnect by checking application health, fresh telemetry and overnight changes.
 
 <!-- _class: compact -->
 
-# Day 2 | Validate, scale and prepare
+# Day 2 | Scale, investigate and close
 
 | Time | Session |
 | --- | --- |
-| 12:00-12:45 | Lab 5: validate and refine SRE Agent |
-| 12:45-13:45 | Lab 6: KEDA and NAP autoscaling |
-| 13:45-14:00 | Break |
-| 14:00-14:20 | Lab 7: improve and prepare the challenge |
+| 12:00-12:45 | Lab 6: KEDA and NAP autoscaling |
+| 12:45-14:20 | Lab 7: prepare, investigate and recover |
+| 14:20-14:50 | Team presentations |
+| 14:50-15:00 | Final closeout |
 
-**Facilitator-injected faults only.** Teams prepare their agents, not attacks.
-
-<!--
-TIME: 45 seconds; refer back before labs.
-Lab 5 verifies actual skill use, scoped reads, denial proof, specialist return and alert-to-investigation flow for the five-agent, twelve-skill bundle configured through bootstrap on Day 1. Preserve actual traces. Lab 6 observes workload and node scaling separately and resets the experiment. Prepare equivalent healthy targets, common intake, original-output capture and authorized recovery. Teams receive no fault-injection access.
--->
-
----
-
-<!-- _class: compact -->
-
-# Day 2 | Challenge and closeout
-
-| Time | Session |
-| --- | --- |
-| 14:20-15:00 | Lab 7: facilitator fault and agent challenge |
-| 15:00-15:20 | Lab 8: evidence review and approved cleanup |
-| 15:20-15:50 | Team presentations |
-| 15:50-16:00 | Final closeout |
-
-**Same fault scenario for every team.** Compare what each agent actually produces.
+**Same facilitator-injected fault for every team. Finish at 15:00.**
 
 <!--
-TIME: 45 seconds; reference at challenge admission.
-During 14:20-14:25 the facilitator applies the same approved scenario to each team's isolated healthy target. Record injection times and allow equal observation windows if staggered. Agents investigate until 14:50; retain original queries, evidence, diagnosis, recommendations and reports or diagrams, with human prompts and hints recorded separately. Use 14:50-15:00 for approved recovery and verified reset. Freeze outputs at 15:00 and reveal the fault record without rewriting answers. No team attacks another. Additional scenarios require the same rehearsed sequence and reset for all teams, one active fault per target. Close with disposal or approved owner, budget and deadline.
--->
+TIME: 90 seconds; afternoon schedule and challenge admission.
+Day 1 already includes Lab 5 runtime validation; there is no optional refinement session on Day 2. Lab 6 runs for 45 minutes immediately after lunch, from 12:00 to 12:45, observing workload and node scaling separately and resetting the experiment. There is no scheduled afternoon break. Lab 7 is one 95-minute block from 12:45 to 14:20, including preparation, the facilitator-injected fault, investigation and approved recovery. Prepare equivalent healthy targets, common intake and original-output capture from 12:45 to 13:05. The facilitator applies the same scenario per team from 13:05 to 13:10; agents investigate from 13:10 to 14:10. Freeze original outputs at 14:10 before revealing fault details, then use 14:10-14:20 for approved recovery and verified reset. Teams receive no fault-injection access; native Azure Monitor intake remains blocked under the workshop's read-only boundary.
 
----
-
-# Keep the agenda and labs close
-
-- Open the [two-day participant labs](../../exercises/two-day-workshop.md).
-- Use the [authoritative agenda](../../AGENDA.md) for all clocks and delivery gates.
-- Raise access blockers with the facilitator before the labs.
-
-**Next: AI and Agents Fundamentals.**
-
-<!--
-TIME: 30 seconds; transition into fundamentals, not another session.
-Point participants to the agenda and progressive lab sequence, then continue with fundamentals. The noon briefing and lab instructions own the detailed permissions, safety, deployment and cleanup procedures. This short welcome adds no extra scheduled session and grants no cloud permissions.
+Team presentations run 14:20-14:50 using preserved original evidence rather than rewritten answers. Retain queries, tool traces, diagnosis, recommendations and reports or diagrams, with participant prompts and hints recorded separately. Distinguish observed recovery from a proposed fix, and record any unresolved baseline or access checks with an owner. There is no scheduled Lab 8. Final closeout from 14:50 to 15:00 confirms recovery and disposal or an approved remaining-resource owner, budget and deadline. Shared platform and observability resources remain under their provisioning owner's control; participants do not destroy them to finish on time. Finish at 15:00 without extending the challenge or adding another session.
 -->
