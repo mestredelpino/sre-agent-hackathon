@@ -3,8 +3,8 @@ marp: true
 theme: default
 size: 16:9
 paginate: true
-title: SRE Agent Validation
-description: A two-slide introduction to demonstrated trust, runtime evidence and incident intake.
+title: Lab 5 - Agent Validation
+description: A brief introduction to the agent validation lab.
 header: 'Azure SRE Agent Workshop | Validation'
 footer: 'Day 1 | Lab 5 | Validation'
 style: |
@@ -26,36 +26,18 @@ style: |
   @media print { section { print-color-adjust: exact; -webkit-print-color-adjust: exact; } }
 ---
 
-# Configured is not demonstrated
+# Lab 5: Agent Validation
 
-<div class="question">Trust is specific to a demonstrated capability, source and permission boundary.</div>
+<div class="question">From a configured agent to confidence in its behavior.</div>
 
-1. **An executed tool read supports an observation.** Target, source and sample time give it scope.
-2. **Retrieval and skill use are separate claims.** Stored content does not prove runtime use.
-3. **A call and return demonstrate delegation.** Role headings alone are only presentation.
-4. **Enforced denial establishes a boundary.** A model refusal alone is not authorization evidence.
+This lab brings the agent from Lab 4 into the workshop environment.
 
-<p class="small">Lab 5 connects each capability to the runtime evidence that supports it.<br><a href="../../exercises/labs/05-agent-validation.md">Agent validation</a></p>
+Its purpose is to understand what the agent can reliably support before the
+scaling lab and incident challenge.
 
-<!--
-TIME: 90 seconds.
-Lab 5 runs from 15:00 to 16:00, including these three minutes. Validation bridges configured intent and demonstrated behavior. An executed tool read establishes an observation under a particular identity, connection and UTC window. A plausible answer or person's terminal result does not establish an agent read. Retrieval has separate evidence about which reference and version was available; skill use is another claim. Delegation needs a call and return rather than specialist headings. Human role calls remain MANUAL HANDOVER. Trust grows capability by capability: Azure resources, logs, Prometheus, Grafana and repository access can have different outcomes. A model refusal is different from enforced authorization. Missing traces limit what is demonstrated, even when another capability works.
--->
-
----
-
-# Incident intake is an evidence chain
-
-<div class="question">A Fired alert proves an evaluation outcome, not delivery to an investigating agent.</div>
-
-1. **Evaluation produces an alert.** Rule state and timestamps describe the detected condition.
-2. **Delivery connects systems.** Notification and automatic thread or merge link the alert to intake.
-3. **Handling begins investigation.** A handler and tool trace show what executed after intake.
-4. **Correlation supports the claim.** Shared alert identity and UTC times connect the stages.
-
-<p class="small">Native Azure Monitor intake stays BLOCKED under the read-only boundary.<br><a href="../../exercises/labs/05-agent-validation.md">Manual evidence is not automated intake</a></p>
+<p class="small"><a href="../../exercises/labs/05-agent-validation.md">Lab 5 guide</a></p>
 
 <!--
-TIME: 90 seconds.
-An incident crosses several boundaries before investigation. Rule evaluation, notification delivery, automatic thread creation or merge, handler selection and tool execution are separate events. Alert identity and UTC timestamps connect them into one evidence chain. Individually plausible screenshots do not establish that continuity. Azure Monitor native intake acknowledges alerts and requires subscription Monitoring Contributor, conflicting with this workshop's strict read-only investigator boundary. It remains BLOCKED; the chain describes evidence needed in a separately authorized workflow, not an instruction to enable it here. Email plus a manually opened chat demonstrates manual intake only. Review does not remove this permission conflict. The handover retains which capabilities were demonstrated and which remain uncertain. Source: https://learn.microsoft.com/en-us/azure/sre-agent/azure-monitor-alerts.
+TIME: 30 seconds.
+Lab 5 follows configuration on Day 1. Its purpose is to build confidence in the agent through its actual behavior, rather than through configuration alone. The outcome is a clearer understanding of the agent's usefulness and remaining limitations before the later workshop activities. This introduction does not define acceptance criteria or add tasks; the linked lab guide contains the validation sequence, evidence requirements and safety boundaries.
 -->

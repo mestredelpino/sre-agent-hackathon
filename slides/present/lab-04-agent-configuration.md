@@ -3,8 +3,8 @@ marp: true
 theme: default
 size: 16:9
 paginate: true
-title: SRE Agent Configuration
-description: A two-slide introduction to skills, agents, connections and independent permission boundaries.
+title: Lab 4 - Agent Configuration
+description: A brief introduction to the agent configuration lab.
 header: 'Azure SRE Agent Workshop | Configuration'
 footer: 'Day 1 | Lab 4 | Configuration'
 style: |
@@ -26,36 +26,18 @@ style: |
   @media print { section { print-color-adjust: exact; -webkit-print-color-adjust: exact; } }
 ---
 
-# Skills, agents and connections
+# Lab 4: Agent Configuration
 
-<div class="question">Configuration defines how an agent reasons, where it gets context and what it can access.</div>
+<div class="question">From a supplied environment to your team's SRE Agent.</div>
 
-1. **Skills supply procedures.** Reusable methods guide investigation and evidence reporting.
-2. **Custom agents define roles.** Triage coordinates; specialists investigate; analysts synthesize.
-3. **Connections expose sources.** Resource, telemetry and repository access are distinct paths.
-4. **Knowledge supplies reference context.** Retrieved documents inform reasoning, not permissions.
+The platform, Store and observability are already deployed. This lab introduces
+the participant-created agent that will support later investigations.
 
-<p class="small"><a href="../../exercises/labs/04-agent-configuration.md">Lab 4</a> | <a href="../../examples/skills/README.md">Skill sources</a> | <a href="../../examples/README.md">Role examples</a></p>
+Its purpose is to make the agent relevant to your team's environment.
 
-<!--
-TIME: 90 seconds.
-Lab 4 runs from 14:00 to 15:00, including this three-minute introduction. It develops a model of four configuration elements that are easy to conflate. A skill describes a method, such as evidence-led investigation. A custom agent gives that method a role, scope and responsibility. A connection exposes a source through tools and authorization. Knowledge supplies retrieved reference material rather than access rights. A Kubernetes specialist might use a troubleshooting skill, read telemetry through an approved connection and consult a runbook. Those are independent dependencies: a stored runbook does not make telemetry accessible, and a selected skill does not prove use. Understanding these distinctions explains what configuration can express and why Lab 5 needs separate runtime evidence.
--->
-
----
-
-# Coordination is not authorization
-
-<div class="question">A role describes responsibility; identity and tool policy determine effective access.</div>
-
-1. **Triage owns coordination.** lab-triage receives specialist evidence before analyst synthesis.
-2. **Tools and identity bound execution.** A role name or skill grants no permission.
-3. **Response plans route incidents.** Filters select an intended handler; Review is not a universal gate.
-4. **Configuration is intent, not proof.** Saved roles do not demonstrate reads or delegation.
-
-<p class="small">The main agent and explicitly selected custom agents are separate entry points.<br><a href="../../exercises/sre-agent-architecture.md">Architecture and permission boundaries</a> | <a href="../../exercises/labs/05-agent-validation.md">Runtime evidence in Lab 5</a></p>
+<p class="small"><a href="../../exercises/labs/04-agent-configuration.md">Lab 4 guide</a></p>
 
 <!--
-TIME: 90 seconds.
-Coordination and authorization solve different problems. Triage owns the conversation, specialists return evidence and an analyst synthesizes it. The analyst needs those returns rather than a duplicate set of diagnostic tools. lab-triage is a separate, explicitly selected entry point from normal main-agent chat. Native Task or handoff traces can demonstrate delegation; human role calls remain MANUAL HANDOVER. Effective access depends on execution identity, scoped authorization, reachable connections and tool policy, including inherited access. The configuration author's identity and Grafana's identity are separate. Response-plan filters express intended incident routing, while Review governs supported approval paths rather than every external call. This model explains why clear instructions, stored settings and enforced permissions are different claims.
+TIME: 30 seconds.
+Lab 4 is where participants create their team's SRE Agent. The surrounding platform, application and monitoring are supplied, but the agent is not. This lab connects the workshop environment to the investigation experience developed in the remaining labs. Configuration is the focus here; runtime validation follows in Lab 5. The linked lab guide contains all setup steps, settings and safety requirements.
 -->

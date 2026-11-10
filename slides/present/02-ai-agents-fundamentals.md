@@ -103,42 +103,6 @@ Welcome everyone and identify the facilitator and STOP signal. We'll use ReAct, 
 
 ---
 
-<!-- _class: title -->
-
-# What changes when AI gets tools?
-
-## It can do more than suggest the next command
-
-An agent might fetch logs, check a configuration, then suggest a repair.
-We need to know what it read and whether the result supports that repair.
-
-<!--
-TIME: 120 seconds
-Ask the room to name a task where the next step depends on the previous result. Log investigation is a useful example: which query would you run after seeing a timeout? Keep examples separate from executed operations. After fundamentals, L100 introduces Azure SRE Agent. After lunch we'll explain the supplied architecture, then check access before configuring the agent.
--->
-
----
-
-# Chat, tools and autonomy
-
-| Level | What It Does | Examples |
-|---|---|---|
-| **Chatbot / LLM** | Answers questions, generates text | *"Explain what an NSG is"* · *"What's our SLA target?"* |
-| **Tool-using agent** | Calls functions to act on your behalf | *"List my VMs"* · *"Draft a CAB request"* |
-| **Autonomous system** | Plans and executes multi-step goals | *"Audit NSG rules"* · *"Prepare the QBR"* |
-
-All three need validation. Tool access adds permissions and side effects;
-greater autonomy adds planning and stopping responsibilities.
-
-> In this workshop, the agent investigates. An authorized human handles recovery.
-
-<!--
-TIME: 120 seconds
-Read the rows as examples, not a maturity ladder. A chatbot returns text; incorrect advice and disclosure of supplied data are still risks. A tool-using agent can call an API or command, so permissions now matter too. An autonomous system chooses more of its own steps, which makes stopping rules important. Ask which kind of system participants have used. More autonomy is not automatically better; a fixed workflow may be enough. Our workshop agent stays read-only and proposes recovery to an authorized human.
--->
-
----
-
 # A few terms we'll use
 
 | Term | What It Is | Everyday Analogy |
@@ -290,6 +254,42 @@ Save a supported `.agent.md` file under `.github/agents/`, then select it in Cop
 <!--
 TIME: 120 seconds
 Point back to the file. Changing its instructions changes guidance, not the permissions of an Azure identity. Copilot Chat supplies execution; no separate deployment is needed for this example. A teammate can review the file in a pull request, but a review alone does not prove that the agent loaded it or followed it. Test a representative request and inspect the tool result after a change. Ask where a rejected operation should be enforced.
+-->
+
+---
+
+<!-- _class: title -->
+
+# What changes when AI gets tools?
+
+## It can do more than suggest the next command
+
+An agent might fetch logs, check a configuration, then suggest a repair.
+We need to know what it read and whether the result supports that repair.
+
+<!--
+TIME: 120 seconds
+Ask the room to name a task where the next step depends on the previous result. Log investigation is a useful example: which query would you run after seeing a timeout? Keep examples separate from executed operations. After fundamentals, L100 introduces Azure SRE Agent. After lunch we'll explain the supplied architecture, then check access before configuring the agent.
+-->
+
+---
+
+# Chat, tools and autonomy
+
+| Level | What It Does | Examples |
+|---|---|---|
+| **Chatbot / LLM** | Answers questions, generates text | *"Explain what an NSG is"* · *"What's our SLA target?"* |
+| **Tool-using agent** | Calls functions to act on your behalf | *"List my VMs"* · *"Draft a CAB request"* |
+| **Autonomous system** | Plans and executes multi-step goals | *"Audit NSG rules"* · *"Prepare the QBR"* |
+
+All three need validation. Tool access adds permissions and side effects;
+greater autonomy adds planning and stopping responsibilities.
+
+> In this workshop, the agent investigates. An authorized human handles recovery.
+
+<!--
+TIME: 120 seconds
+Read the rows as examples, not a maturity ladder. A chatbot returns text; incorrect advice and disclosure of supplied data are still risks. A tool-using agent can call an API or command, so permissions now matter too. An autonomous system chooses more of its own steps, which makes stopping rules important. Ask which kind of system participants have used. More autonomy is not automatically better; a fixed workflow may be enough. Our workshop agent stays read-only and proposes recovery to an authorized human.
 -->
 
 ---
