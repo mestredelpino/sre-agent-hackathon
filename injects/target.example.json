@@ -1,0 +1,21 @@
+{
+  "target": {
+    "context": "YOUR_KUBECTL_CONTEXT",
+    "namespace": "YOUR_STORE_NAMESPACE",
+    "server": "https://YOUR_INSPECTED_AKS_API_HOST:443",
+    "kubeconfig": "/absolute/path/to/your/kubeconfig"
+  },
+  "nodepool": {
+    "nodeclass_ref": {
+      "group": "karpenter.azure.com",
+      "kind": "AKSNodeClass",
+      "name": "YOUR_INSPECTED_NODECLASS"
+    }
+  },
+  "scenarios": {
+    "03": {
+      "zone": "YOUR_CONFIRMED_UNAVAILABLE_ZONE",
+      "tolerations": []
+    }
+  }
+}

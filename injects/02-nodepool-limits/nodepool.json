@@ -1,0 +1,41 @@
+{
+  "apiVersion": "karpenter.sh/v1",
+  "kind": "NodePool",
+  "metadata": {
+    "name": "inject02-limits"
+  },
+  "spec": {
+    "limits": { "cpu": "1", "memory": "16Gi" },
+    "disruption": {
+      "consolidationPolicy": "WhenEmptyOrUnderutilized",
+      "consolidateAfter": "60s",
+      "budgets": [{ "nodes": "0" }]
+    },
+    "template": {
+      "metadata": {
+        "labels": {
+          "injects.sre/scenario02": "limits",
+          "kubernetes.azure.com/mode": "user",
+          "kubernetes.azure.com/ebpf-dataplane": "cilium"
+        }
+      },
+      "spec": {
+        "expireAfter": "Never",
+        "nodeClassRef": {
+          "group": "karpenter.azure.com",
+          "kind": "AKSNodeClass",
+          "name": "CONFIGURE_NODECLASS_BEFORE_USE"
+        },
+        "requirements": [
+          { "key": "kubernetes.io/os", "operator": "In", "values": ["linux"] },
+          { "key": "kubernetes.io/arch", "operator": "In", "values": ["amd64"] },
+          { "key": "karpenter.sh/capacity-type", "operator": "In", "values": ["on-demand"] },
+          { "key": "karpenter.azure.com/sku-family", "operator": "In", "values": ["D"] },
+          { "key": "karpenter.azure.com/sku-cpu", "operator": "In", "values": ["2"] }
+        ],
+        "taints": [{ "key": "injects.sre/scenario02", "value": "limits", "effect": "NoSchedule" }],
+        "startupTaints": [{ "key": "node.cilium.io/agent-not-ready", "value": "true", "effect": "NoExecute" }]
+      }
+    }
+  }
+}

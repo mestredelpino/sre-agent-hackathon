@@ -1,0 +1,46 @@
+{
+  "target": {
+    "tenant_id": "YOUR_TENANT_ID",
+    "subscription_id": "YOUR_SUBSCRIPTION_ID"
+  },
+  "dedicated_lab": false,
+  "exclusive_control": false,
+  "nsg": {
+    "resource_id": "/subscriptions/YOUR_SUBSCRIPTION_ID/resourceGroups/YOUR_LAB_RG/providers/Microsoft.Network/networkSecurityGroups/YOUR_NSG",
+    "rule_name": "sreLabDeny",
+    "priority": 120,
+    "source_prefix": "YOUR_CLIENT_OR_APPGW_SOURCE_CIDR",
+    "destination_prefix": "YOUR_BACKEND_IP_OR_SUBNET_CIDR",
+    "destination_port": 80,
+    "probe": {
+      "url": "https://YOUR_LAB_HOST/",
+      "timeout_seconds": 15,
+      "healthy_statuses": [200],
+      "broken_statuses": [0]
+    }
+  },
+  "waf": {
+    "resource_id": "/subscriptions/YOUR_SUBSCRIPTION_ID/resourceGroups/YOUR_LAB_RG/providers/Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/YOUR_POLICY",
+    "rule_name": "sreLabBlock",
+    "priority": 20,
+    "header_name": "X-SRE-Lab",
+    "header_value": "approved-rehearsal",
+    "probe": {
+      "url": "https://YOUR_WAF_LAB_HOST/",
+      "timeout_seconds": 15,
+      "healthy_statuses": [200],
+      "broken_statuses": [403]
+    }
+  },
+  "backend": {
+    "resource_id": "/subscriptions/YOUR_SUBSCRIPTION_ID/resourceGroups/YOUR_LAB_RG/providers/Microsoft.Network/applicationGateways/YOUR_GATEWAY",
+    "pool_name": "YOUR_DEDICATED_BACKEND_POOL",
+    "wrong_address": "YOUR_INSPECTED_UNUSED_PRIVATE_IP",
+    "probe": {
+      "url": "https://YOUR_LAB_HOST/",
+      "timeout_seconds": 15,
+      "healthy_statuses": [200],
+      "broken_statuses": [502]
+    }
+  }
+}

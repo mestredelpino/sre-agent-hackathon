@@ -1,0 +1,41 @@
+{
+  "target": {
+    "context": "YOUR_KUBECTL_CONTEXT",
+    "namespace": "YOUR_LAB_NAMESPACE",
+    "server": "https://YOUR_INSPECTED_KUBERNETES_API_HOST:443",
+    "kubeconfig": "/absolute/path/to/your/kubeconfig"
+  },
+  "scenarios": {
+    "07": {
+      "deployment": "YOUR_TARGET_DEPLOYMENT",
+      "policy_name": "inject07-deny-ingress",
+      "enforcement_confirmed": false,
+      "probe": {
+        "pod": "YOUR_DIFFERENT_NODE_CLIENT_POD",
+        "container": "YOUR_CLIENT_CONTAINER",
+        "url": "http://YOUR_TARGET_SERVICE:PORT/health"
+      }
+    },
+    "08": {
+      "ingress": "YOUR_INGRESS",
+      "host": "YOUR_INGRESS_HOST",
+      "path": "/",
+      "path_type": "Prefix",
+      "wrong_service": "inject08-missing-service",
+      "wrong_port": 80,
+      "probe": {
+        "pod": "YOUR_NODE_CLIENT_POD",
+        "container": "YOUR_CLIENT_CONTAINER",
+        "url": "https://YOUR_INGRESS_HOST/"
+      }
+    },
+    "09": {
+      "service": "YOUR_CLUSTERIP_SERVICE",
+      "probe": {
+        "pod": "YOUR_NODE_CLIENT_POD",
+        "container": "YOUR_CLIENT_CONTAINER",
+        "url": "http://YOUR_CLUSTERIP_SERVICE:PORT/health"
+      }
+    }
+  }
+}
